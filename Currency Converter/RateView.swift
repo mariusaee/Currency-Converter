@@ -2,35 +2,46 @@
 //  RateView.swift
 //  Currency Converter
 //
-//  Created by Marius Malyshev on 20.04.2023.
+//  Created by Marius Malyshev on 08.06.2023.
 //
 
 import SwiftUI
 
 struct RateView: View {
-    var rate: String
+    @ObservedObject var rateViewModel: RateListViewModel
+    var index: Int
     
     var body: some View {
-        HStack {
+        HStack() {
             Image(systemName: "flag")
                 .resizable()
                 .frame(width: 32, height: 32)
             VStack(alignment: .leading) {
-                Text(rate)
+                Text(rateViewModel.currencies[index].name)
                     .font(.title2)
-                Text("$1.00")
+                Text("$\(String(rateViewModel.currencies[index].rateToUSD))")
                     .font(.caption)
             }
+            
             Spacer()
-            Text("$1.00")
-                .font(.title2)
-                .bold()
+            
+            TextField("0.0", text: Binding(
+                get: { rateViewModel.currencies[index].amount },
+                set: { newValue in
+                    rateViewModel.currencies[index].amount = newValue
+                    rateViewModel.updateAmounts(from: rateViewModel.currencies[index])
+                }
+            ))
+            .font(.title2)
+            .bold()
+            .keyboardType(.decimalPad)
+            .fixedSize()
         }
     }
 }
 
 struct RateView_Previews: PreviewProvider {
     static var previews: some View {
-        RateView(rate: "USD")
+        RateView(rateViewModel: RateListViewModel(), index: 0)
     }
 }

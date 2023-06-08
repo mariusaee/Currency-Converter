@@ -8,19 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		29665F6229F1671900094C43 /* Currency_ConverterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29665F6129F1671900094C43 /* Currency_ConverterApp.swift */; };
-		29665F6429F1671900094C43 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29665F6329F1671900094C43 /* ContentView.swift */; };
+		29665F6429F1671900094C43 /* RateListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29665F6329F1671900094C43 /* RateListView.swift */; };
 		29665F6629F1671A00094C43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29665F6529F1671A00094C43 /* Assets.xcassets */; };
 		29665F6929F1671A00094C43 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29665F6829F1671A00094C43 /* Preview Assets.xcassets */; };
-		29665F7029F1801B00094C43 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29665F6F29F1801B00094C43 /* RateView.swift */; };
+		297C0C0B2A321E3F00D0D120 /* RateListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297C0C0A2A321E3F00D0D120 /* RateListViewModel.swift */; };
+		297C0C0D2A32232A00D0D120 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297C0C0C2A32232A00D0D120 /* RateView.swift */; };
+		29CB0B2B2A2F349D008F0A9F /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB0B2A2A2F349D008F0A9F /* Currency.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		29665F5E29F1671900094C43 /* Currency Converter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Currency Converter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		29665F6129F1671900094C43 /* Currency_ConverterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency_ConverterApp.swift; sourceTree = "<group>"; };
-		29665F6329F1671900094C43 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		29665F6329F1671900094C43 /* RateListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateListView.swift; sourceTree = "<group>"; };
 		29665F6529F1671A00094C43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29665F6829F1671A00094C43 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		29665F6F29F1801B00094C43 /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
+		297C0C0A2A321E3F00D0D120 /* RateListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateListViewModel.swift; sourceTree = "<group>"; };
+		297C0C0C2A32232A00D0D120 /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
+		29CB0B2A2A2F349D008F0A9F /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +58,10 @@
 			isa = PBXGroup;
 			children = (
 				29665F6129F1671900094C43 /* Currency_ConverterApp.swift */,
-				29665F6329F1671900094C43 /* ContentView.swift */,
-				29665F6F29F1801B00094C43 /* RateView.swift */,
+				29665F6329F1671900094C43 /* RateListView.swift */,
+				297C0C0A2A321E3F00D0D120 /* RateListViewModel.swift */,
+				297C0C0C2A32232A00D0D120 /* RateView.swift */,
+				29CB0B2A2A2F349D008F0A9F /* Currency.swift */,
 				29665F6529F1671A00094C43 /* Assets.xcassets */,
 				29665F6729F1671A00094C43 /* Preview Content */,
 			);
@@ -140,9 +146,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29665F6429F1671900094C43 /* ContentView.swift in Sources */,
+				29CB0B2B2A2F349D008F0A9F /* Currency.swift in Sources */,
+				297C0C0D2A32232A00D0D120 /* RateView.swift in Sources */,
+				297C0C0B2A321E3F00D0D120 /* RateListViewModel.swift in Sources */,
+				29665F6429F1671900094C43 /* RateListView.swift in Sources */,
 				29665F6229F1671900094C43 /* Currency_ConverterApp.swift in Sources */,
-				29665F7029F1801B00094C43 /* RateView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,11 +282,13 @@
 				DEVELOPMENT_TEAM = A53U52H77W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,11 +313,13 @@
 				DEVELOPMENT_TEAM = A53U52H77W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
