@@ -1,5 +1,5 @@
 //
-//  Currency.swift
+//  RateModel.swift
 //  Currency Converter
 //
 //  Created by Marius Malyshev on 06.06.2023.
@@ -14,7 +14,7 @@ struct Response: Codable {
     var rates = [String: Double]()
 }
 
-struct CurrencyModel: Identifiable {
+struct RateModel: Identifiable {
     let id = UUID()
     let name: String
     let rateToUSD: Double

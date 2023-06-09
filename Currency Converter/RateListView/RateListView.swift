@@ -16,6 +16,9 @@ struct RateListView: View {
                 ForEach(rateViewModel.currencies.indices, id: \.self) { index in
                     RateView(rateViewModel: rateViewModel, index: index)
                 }
+                .onAppear() {
+                    rateViewModel.getResponse()
+                }
             }
         }
     }
