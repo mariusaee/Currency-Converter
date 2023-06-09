@@ -22,10 +22,16 @@ class NetworkManager {
             }
             
             guard let data = data else { return }
-                        
+
             do {
-                let decoder = JSONDecoder()
-                let response = try decoder.decode(Response.self, from: data)
+                let response = try JSONDecoder().decode(Response.self, from: data)
+                guard response.success,
+                      !response.rates.isEmpty
+                else {
+                    print("Bad response")
+                    return
+                }
+                
                 let rates = self.getSortedRates(from: response)
                 DispatchQueue.main.async {
                     completion(rates)
