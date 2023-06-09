@@ -9,17 +9,15 @@ import SwiftUI
 
 struct RateListView: View {
     @ObservedObject var rateViewModel = RateListViewModel()
-
+    
     var body: some View {
         VStack() {
-            List {
-                ForEach(rateViewModel.currencies.indices, id: \.self) { index in
-                    RateView(rateViewModel: rateViewModel, index: index)
-                }
-                .onAppear() {
-                    rateViewModel.getResponse()
-                }
+            List($rateViewModel.currencies.indices, id: \.self) { index in
+                RateView(rateViewModel: rateViewModel, index: index)
             }
+        }
+        .onAppear() {
+            rateViewModel.getResponse()
         }
     }
 }
