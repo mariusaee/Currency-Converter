@@ -17,19 +17,19 @@ struct RateView: View {
                 .resizable()
                 .frame(width: 32, height: 32)
             VStack(alignment: .leading) {
-                Text(rateViewModel.currencies[index].name)
+                Text(rateViewModel.rates[index].name)
                     .font(.title2)
-                Text("$\(String(rateViewModel.currencies[index].rateToUSD))")
+                Text("$\(String(rateViewModel.rates[index].rateToUSD))")
                     .font(.caption)
             }
             
             Spacer()
             
             TextField("0.0", text: Binding(
-                get: { rateViewModel.currencies[index].amount },
+                get: { rateViewModel.rates[index].amount },
                 set: { newValue in
-                    rateViewModel.currencies[index].amount = newValue
-                    rateViewModel.updateAmounts(from: rateViewModel.currencies[index])
+                    rateViewModel.rates[index].amount = newValue
+                    rateViewModel.updateAmounts(from: rateViewModel.rates[index])
                 }
             ))
             .font(.title2)

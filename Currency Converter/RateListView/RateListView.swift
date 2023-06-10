@@ -12,12 +12,12 @@ struct RateListView: View {
     
     var body: some View {
         VStack() {
-            List($rateViewModel.currencies.indices, id: \.self) { index in
+            List($rateViewModel.rates.indices, id: \.self) { index in
                 RateView(rateViewModel: rateViewModel, index: index)
             }
         }
         .onAppear() {
-            rateViewModel.getResponse()
+            rateViewModel.getRates()
         }
     }
 }

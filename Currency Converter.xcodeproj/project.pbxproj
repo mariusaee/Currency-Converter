@@ -7,18 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2940755C2A34A1FE00B63FD8 /* RatesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2940755B2A34A1FE00B63FD8 /* RatesDataSource.swift */; };
 		29665F6229F1671900094C43 /* Currency_ConverterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29665F6129F1671900094C43 /* Currency_ConverterApp.swift */; };
 		29665F6429F1671900094C43 /* RateListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29665F6329F1671900094C43 /* RateListView.swift */; };
 		29665F6629F1671A00094C43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29665F6529F1671A00094C43 /* Assets.xcassets */; };
 		29665F6929F1671A00094C43 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29665F6829F1671A00094C43 /* Preview Assets.xcassets */; };
 		297C0C0B2A321E3F00D0D120 /* RateListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297C0C0A2A321E3F00D0D120 /* RateListViewModel.swift */; };
 		297C0C0D2A32232A00D0D120 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297C0C0C2A32232A00D0D120 /* RateView.swift */; };
-		29CB0B2B2A2F349D008F0A9F /* RateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB0B2A2A2F349D008F0A9F /* RateModel.swift */; };
+		29CB0B2B2A2F349D008F0A9F /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB0B2A2A2F349D008F0A9F /* Rate.swift */; };
 		29E1FD472A332AA500D191B1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E1FD462A332AA500D191B1 /* Constants.swift */; };
 		29E1FD4A2A332E2C00D191B1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E1FD492A332E2C00D191B1 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2940755B2A34A1FE00B63FD8 /* RatesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesDataSource.swift; sourceTree = "<group>"; };
 		29665F5E29F1671900094C43 /* Currency Converter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Currency Converter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		29665F6129F1671900094C43 /* Currency_ConverterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency_ConverterApp.swift; sourceTree = "<group>"; };
 		29665F6329F1671900094C43 /* RateListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateListView.swift; sourceTree = "<group>"; };
@@ -26,7 +28,7 @@
 		29665F6829F1671A00094C43 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		297C0C0A2A321E3F00D0D120 /* RateListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateListViewModel.swift; sourceTree = "<group>"; };
 		297C0C0C2A32232A00D0D120 /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
-		29CB0B2A2A2F349D008F0A9F /* RateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateModel.swift; sourceTree = "<group>"; };
+		29CB0B2A2A2F349D008F0A9F /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
 		29E1FD462A332AA500D191B1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		29E1FD492A332E2C00D191B1 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,7 +93,7 @@
 		29E1FD452A330F3A00D191B1 /* RateView */ = {
 			isa = PBXGroup;
 			children = (
-				29CB0B2A2A2F349D008F0A9F /* RateModel.swift */,
+				29CB0B2A2A2F349D008F0A9F /* Rate.swift */,
 				297C0C0C2A32232A00D0D120 /* RateView.swift */,
 			);
 			path = RateView;
@@ -101,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				29E1FD492A332E2C00D191B1 /* NetworkManager.swift */,
+				2940755B2A34A1FE00B63FD8 /* RatesDataSource.swift */,
+				29E1FD462A332AA500D191B1 /* Constants.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -109,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				29665F6529F1671A00094C43 /* Assets.xcassets */,
-				29E1FD462A332AA500D191B1 /* Constants.swift */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -184,8 +187,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29CB0B2B2A2F349D008F0A9F /* RateModel.swift in Sources */,
+				29CB0B2B2A2F349D008F0A9F /* Rate.swift in Sources */,
 				297C0C0D2A32232A00D0D120 /* RateView.swift in Sources */,
+				2940755C2A34A1FE00B63FD8 /* RatesDataSource.swift in Sources */,
 				297C0C0B2A321E3F00D0D120 /* RateListViewModel.swift in Sources */,
 				29E1FD4A2A332E2C00D191B1 /* NetworkManager.swift in Sources */,
 				29665F6429F1671900094C43 /* RateListView.swift in Sources */,

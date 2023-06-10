@@ -8,41 +8,28 @@
 import Foundation
 
 protocol RateListViewModelProtocol {
-    func updateAmounts(from currency: RateModel)
-    func getResponse()
-    func getRates(from response: Response)
+    func updateAmounts(from currency: Rate)
+    func getRates()
 }
 
-class RateListViewModel: RateListViewModelProtocol, ObservableObject {
+final class RateListViewModel: RateListViewModelProtocol, ObservableObject {
     
-    private var networkManager = NetworkManager.shared
+    private var dataSource = RatesDataSource.shared
     
-    @Published var currencies: [RateModel] = [
-        RateModel(name: "USD", rateToUSD: 1.0),
-        RateModel(name: "EUR", rateToUSD: 0.85),
-        RateModel(name: "RUB", rateToUSD: 75.0),
-        RateModel(name: "CNY", rateToUSD: 6.5)
-    ]
+    @Published var rates: [Rate] = []
     
-    func getResponse() {
-        networkManager.getRates { rates in
-            self.currencies = rates
+    func getRates() {
+        dataSource.getRates { rates in
+            self.rates = rates
         }
     }
-    
-    func getRates(from response: Response) {
-        let ratesDict = response.rates
-        for rate in ratesDict {
-            currencies.append(RateModel(name: rate.key, rateToUSD: rate.value))
-        }
-    }
-    
-    func updateAmounts(from currency: RateModel) {
+        
+    func updateAmounts(from currency: Rate) {
         guard let baseAmount = Double(currency.amount) else { return }
-        for index in 0..<currencies.count {
-            if currencies[index].id != currency.id {
-                let newAmount = (baseAmount / currency.rateToUSD) * currencies[index].rateToUSD
-                currencies[index].amount = String(format: "%.2f", newAmount)
+        for index in 0..<rates.count {
+            if rates[index].id != currency.id {
+                let newAmount = (baseAmount / currency.rateToUSD) * rates[index].rateToUSD
+                rates[index].amount = String(format: "%.2f", newAmount)
             }
         }
     }

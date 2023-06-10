@@ -52,7 +52,6 @@ final class RatesDataSource {
         return today > lastUpdate
     }
     
-    // TODO: - !DRY
     private func getSortedRates(from ratesDict: [String : Double]) -> [Rate] {
         let rates: [Rate]
         
