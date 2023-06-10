@@ -7,13 +7,15 @@
 
 import Foundation
 
-class NetworkManager {
+final class NetworkManager {
     static let shared = NetworkManager()
     
     private init() {}
         
-    func getRates(completion: @escaping (_ rates: [RateModel]) -> Void) {
-        guard let url = URL(string: Constants.baseUSD.rawValue) else { return }
+    // func getRates(completion: @escaping (_ response: Response, _ rates: [Rate]) -> Void) {
+    func getRates(completion: @escaping (_ rates: [String : Double]) -> Void) {
+
+        guard let url = URL(string: Constants.Links.baseUSD) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let error = error {
@@ -31,26 +33,12 @@ class NetworkManager {
                     print("Bad response")
                     return
                 }
-                
-                let rates = self.getSortedRates(from: response)
                 DispatchQueue.main.async {
-                    completion(rates)
+                    completion(response.rates)
                 }
             } catch let error {
                 print("Error serialisation json", error.localizedDescription)
             }
         }.resume()
-    }
-    
-    private func getSortedRates(from response: Response) -> [RateModel] {
-        let rates: [RateModel]
-        
-        rates = response.rates.map({ (name, rateToUSD) in
-            RateModel(name: name, rateToUSD: rateToUSD)
-        })
-        
-        return rates.sorted { lhs, rhs in
-            lhs.name < rhs.name
-        }
     }
 }
